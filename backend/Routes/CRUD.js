@@ -19,7 +19,6 @@ router.get('/', (req,res)=>
    res.send("Hello")
 })
 
-// Post API : - add student details api
 
 router.post("/create",async(req,res)=>
 {
@@ -35,7 +34,7 @@ router.post("/create",async(req,res)=>
    }
 })
 
-// GET ALL Students API
+
 router.get('/list',async(req,res)=>
 {
    try
@@ -49,7 +48,7 @@ router.get('/list',async(req,res)=>
    }
 })
 
-// get specific student details API.
+
 
 router.get('/student/:id',async(req,res)=>
 {
@@ -64,7 +63,7 @@ router.get('/student/:id',async(req,res)=>
    }
 })
 
-// delete student
+
 
 router.delete('/delete/:id',async(req,res)=>
    {
@@ -96,32 +95,7 @@ router.delete('/delete/:id',async(req,res)=>
          }
       })
 
-   // Searech Student by name
 
-   router.get('/search/:name', async(req, res) => 
-   { 
-      console.log(req.params.name)
-          const result =  await StudentModule.find(
-            {
-               "$or":[
-                  {name:{$regex: req.params.name}},
-                  
-               ]
-            }
-           
-         );
-          res.send(result);
-  });
-
-   
-      //search student by name
-      // search student by marks
-      //search student by range -- age -- 20 to 23
-      //max marks
-      // min marks
-      //search student by city
-      //search student by city ---> Pune Marks total
-      // count student by city.
-      // date or year API
+ 
 
     module.exports = router;
